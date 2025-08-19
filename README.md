@@ -8,5 +8,5 @@ from our primary data source `http://ethsld.aau.edu.et`. The web application use
 
 ### Algorithm explanation
 The program starts from requesting the whole words `3134` then for each words there will be an iteration to get the word
-detail using the second endpoint by providing the `wordID`, and the in the response there is a `fileName` that is used to request a specific video
+detail using the second endpoint by providing the `wordID`, and then in the response there is a `fileName` that is used to request a specific video
 data using the third endpoint.

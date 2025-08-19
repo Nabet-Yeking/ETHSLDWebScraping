@@ -7,6 +7,6 @@ from our primary data source `http://ethsld.aau.edu.et`. The web application use
 - `/ESLDS/public/assets/uploads/media_content/{fileName}`
 
 ### Algorithm explanation
-The program start from requesting the whole words `3134` then for each words respond from the server there will be an iteration to get the word
+The program starts from requesting the whole words `3134` then for each words there will be an iteration to get the word
 detail using the second endpoint by providing the word id, and the in the response there is a file name that is used to request a specific video
 data using the third endpoint by providing the file name.

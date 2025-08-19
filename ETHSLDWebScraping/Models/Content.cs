@@ -8,5 +8,8 @@ namespace ETHSLDWebScraping.Models
 {
     internal class Content
     {
+        public int Id { get; set; }
+        public string? ContentType { get; set; } 
+        public string? FileName { get; set; }
     }
 }

@@ -35,10 +35,10 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            label5 = new Label();
             wordURILbl = new Label();
             wordDetailURILbl = new Label();
             videoDataURILbl = new Label();
+            startBtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -80,7 +80,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(47, 347);
+            label4.Location = new Point(47, 319);
             label4.Name = "label4";
             label4.Size = new Size(137, 25);
             label4.TabIndex = 10;
@@ -89,7 +89,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(47, 305);
+            label3.Location = new Point(47, 277);
             label3.Name = "label3";
             label3.Size = new Size(143, 25);
             label3.TabIndex = 9;
@@ -98,25 +98,16 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(47, 263);
+            label2.Location = new Point(47, 235);
             label2.Name = "label2";
             label2.Size = new Size(93, 25);
             label2.TabIndex = 8;
             label2.Text = "Word URI:";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(47, 226);
-            label5.Name = "label5";
-            label5.Size = new Size(57, 25);
-            label5.TabIndex = 11;
-            label5.Text = "Detail";
-            // 
             // wordURILbl
             // 
             wordURILbl.AutoSize = true;
-            wordURILbl.Location = new Point(146, 263);
+            wordURILbl.Location = new Point(146, 235);
             wordURILbl.Name = "wordURILbl";
             wordURILbl.Size = new Size(0, 25);
             wordURILbl.TabIndex = 12;
@@ -124,7 +115,7 @@
             // wordDetailURILbl
             // 
             wordDetailURILbl.AutoSize = true;
-            wordDetailURILbl.Location = new Point(196, 305);
+            wordDetailURILbl.Location = new Point(196, 277);
             wordDetailURILbl.Name = "wordDetailURILbl";
             wordDetailURILbl.Size = new Size(0, 25);
             wordDetailURILbl.TabIndex = 13;
@@ -132,20 +123,31 @@
             // videoDataURILbl
             // 
             videoDataURILbl.AutoSize = true;
-            videoDataURILbl.Location = new Point(189, 347);
+            videoDataURILbl.Location = new Point(189, 319);
             videoDataURILbl.Name = "videoDataURILbl";
             videoDataURILbl.Size = new Size(0, 25);
             videoDataURILbl.TabIndex = 14;
+            // 
+            // startBtn
+            // 
+            startBtn.Cursor = Cursors.Hand;
+            startBtn.Location = new Point(735, 346);
+            startBtn.Name = "startBtn";
+            startBtn.Size = new Size(73, 34);
+            startBtn.TabIndex = 15;
+            startBtn.Text = "Start";
+            startBtn.UseVisualStyleBackColor = true;
+            startBtn.Click += startBtn_Click;
             // 
             // Form
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(856, 401);
+            Controls.Add(startBtn);
             Controls.Add(videoDataURILbl);
             Controls.Add(wordDetailURILbl);
             Controls.Add(wordURILbl);
-            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -170,9 +172,9 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private Label label5;
         private Label wordURILbl;
         private Label wordDetailURILbl;
         private Label videoDataURILbl;
+        private Button startBtn;
     }
 }

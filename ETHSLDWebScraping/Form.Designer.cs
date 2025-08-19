@@ -57,14 +57,14 @@
             wordLbl.AutoSize = true;
             wordLbl.Location = new Point(47, 175);
             wordLbl.Name = "wordLbl";
-            wordLbl.Size = new Size(42, 25);
+            wordLbl.Size = new Size(53, 25);
             wordLbl.TabIndex = 1;
-            wordLbl.Text = "Test";
+            wordLbl.Text = "word";
             // 
             // countLbl
             // 
             countLbl.AutoSize = true;
-            countLbl.Location = new Point(741, 174);
+            countLbl.Location = new Point(741, 176);
             countLbl.Name = "countLbl";
             countLbl.Size = new Size(22, 25);
             countLbl.TabIndex = 2;
@@ -80,7 +80,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(47, 319);
+            label4.Location = new Point(47, 317);
             label4.Name = "label4";
             label4.Size = new Size(137, 25);
             label4.TabIndex = 10;
@@ -89,7 +89,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(47, 277);
+            label3.Location = new Point(47, 275);
             label3.Name = "label3";
             label3.Size = new Size(143, 25);
             label3.TabIndex = 9;
@@ -98,7 +98,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(47, 235);
+            label2.Location = new Point(47, 233);
             label2.Name = "label2";
             label2.Size = new Size(93, 25);
             label2.TabIndex = 8;
@@ -107,7 +107,7 @@
             // wordURILbl
             // 
             wordURILbl.AutoSize = true;
-            wordURILbl.Location = new Point(146, 235);
+            wordURILbl.Location = new Point(146, 233);
             wordURILbl.Name = "wordURILbl";
             wordURILbl.Size = new Size(0, 25);
             wordURILbl.TabIndex = 12;
@@ -115,7 +115,7 @@
             // wordDetailURILbl
             // 
             wordDetailURILbl.AutoSize = true;
-            wordDetailURILbl.Location = new Point(196, 277);
+            wordDetailURILbl.Location = new Point(196, 275);
             wordDetailURILbl.Name = "wordDetailURILbl";
             wordDetailURILbl.Size = new Size(0, 25);
             wordDetailURILbl.TabIndex = 13;
@@ -123,7 +123,7 @@
             // videoDataURILbl
             // 
             videoDataURILbl.AutoSize = true;
-            videoDataURILbl.Location = new Point(189, 319);
+            videoDataURILbl.Location = new Point(189, 317);
             videoDataURILbl.Name = "videoDataURILbl";
             videoDataURILbl.Size = new Size(0, 25);
             videoDataURILbl.TabIndex = 14;

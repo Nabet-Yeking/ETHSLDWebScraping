@@ -75,6 +75,8 @@
             scrapingPrBar.Location = new Point(47, 113);
             scrapingPrBar.Name = "scrapingPrBar";
             scrapingPrBar.Size = new Size(761, 49);
+            scrapingPrBar.Step = 1;
+            scrapingPrBar.Style = ProgressBarStyle.Continuous;
             scrapingPrBar.TabIndex = 3;
             // 
             // label4

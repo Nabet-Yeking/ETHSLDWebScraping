@@ -1,5 +1,6 @@
 using ETHSLDWebScraping.DTOs;
 using ETHSLDWebScraping.Models;
+using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Net.Http.Json;
@@ -20,6 +21,7 @@ namespace ETHSLDWebScraping
             {
                 BaseAddress = new Uri("http://ethsld.aau.edu.et")
             };
+            _httpClient.Timeout = TimeSpan.FromMinutes(10); // Set a longer timeout for the HTTP requests
             _word_url = "/ESLDS/public/api/Dictionary-Item/Word/0/3134";
             _word_detail_url = "/ESLDS/public/api/Get-RandWord-Detail2";
             _video_data_url = "/ESLDS/public/assets/uploads/media_content";
@@ -67,7 +69,7 @@ namespace ETHSLDWebScraping
                     int id = w[i].Id;
                     var response = await _httpClient.GetAsync($"{_word_detail_url}/{id}");
                     await GetWordsVideoDataAsync(await response.Content.ReadFromJsonAsync<WordDetailResponseDto>() ?? null);
-                    updateUI(id, i + 1);
+                    updateUI(id, i + 1, len);
                 }
                 ShowErrorMessage($"{len} videos succesfully saved!", "Success");
             }
@@ -77,11 +79,11 @@ namespace ETHSLDWebScraping
             }
         }
 
-        private void updateUI(int wordId, int ct)
+        private void updateUI(int wordId, int ct, int total)
         {
             wordURILbl.Text = _word_url;
             wordDetailURILbl.Text = $"{_word_detail_url}/{wordId}";
-            countLbl.Text = ct.ToString();
+            countLbl.Text = $"{scrapingPrBar.Value}";
             scrapingPrBar.PerformStep();
         }
 
@@ -92,6 +94,7 @@ namespace ETHSLDWebScraping
                 if (wordDetailResponseDto == null) return;
                 if (wordDetailResponseDto.Data == null) return;
                 if (wordDetailResponseDto.Data.Contents == null) return;
+                if (wordDetailResponseDto.Data.Contents.Length == 0) return;
                 if (wordDetailResponseDto.Data.Translations == null) return;
 
                 string? fileName = wordDetailResponseDto.Data.Contents[0].FileName;
@@ -161,8 +164,8 @@ namespace ETHSLDWebScraping
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            scrapingPrBar.Refresh();
             StartScrappingAsync();
+            startBtn.Enabled = false;
         }
 
         private void ShowErrorMessage(string e, string title = "Error")

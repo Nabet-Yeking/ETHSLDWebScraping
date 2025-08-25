@@ -38,24 +38,12 @@ namespace ETHSLDWebScraping
             {
                 if (words.Data?.Words != null)
                 {
-                    try
-                    {
-                        await GetWordsDetailAsync(words);
-                    }
-                    catch(Exception e)
-                    {
-                        ShowErrorMessage(e.Message);
-                    }
+                    await GetWordsDetailAsync(words);
                 }
                 else
                 {
                     ShowErrorMessage("No words found.");
                 }
-
-            }
-            else
-            {
-                ShowErrorMessage("Failed to retrieve words.");
             }
         }
 
@@ -162,6 +150,7 @@ namespace ETHSLDWebScraping
             catch (Exception ex) 
             {
                 ShowErrorMessage(ex.Message);
+                return;
             }
         }
 

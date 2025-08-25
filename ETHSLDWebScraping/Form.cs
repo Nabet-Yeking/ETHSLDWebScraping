@@ -14,10 +14,12 @@ namespace ETHSLDWebScraping
         private readonly string _word_detail_url;
         private readonly string _video_data_url;
         private int _errorCount;
+        private int from, to;
 
-        public Form()
+        public Form(int from = 0, int to = 3134)
         {
-            InitializeComponent();
+            this.from = from;
+            this.to = to;
             _httpClient = new HttpClient
             {
                 BaseAddress = new Uri("http://ethsld.aau.edu.et")
@@ -26,6 +28,7 @@ namespace ETHSLDWebScraping
             _word_url = "/ESLDS/public/api/Dictionary-Item/Word/0/3134";
             _word_detail_url = "/ESLDS/public/api/Get-RandWord-Detail2";
             _video_data_url = "/ESLDS/public/assets/uploads/media_content";
+            InitializeComponent();
         }
 
         private async void StartScrappingAsync()
@@ -62,17 +65,30 @@ namespace ETHSLDWebScraping
             {
                 Word[]? w = words.Data?.Words ?? null;
                 if (w == null) return;
-                int len = w.Length;
-                scrapingPrBar.Maximum = len;
-
-                for (int i = 0; i < len; i++)
+                int len;
+                if (to <= w.Length && to > 0)
+                {
+                    if (from !< to && from !>= 0)
+                    {
+                        from = 0;
+                    }
+                    len = to;
+                }
+                else
+                {
+                    from = 0;
+                    len = w.Length;
+                }
+                scrapingPrBar.Maximum = to - from;
+                
+                for (int i = from; i < len; i++)
                 {
                     int id = w[i].Id;
                     var response = await _httpClient.GetAsync($"{_word_detail_url}/{id}");
                     await GetWordsVideoDataAsync(await response.Content.ReadFromJsonAsync<WordDetailResponseDto>() ?? null);
                     updateUI(id, i + 1, len);
                 }
-                ShowErrorMessage($"{len} videos succesfully saved!", "Success");
+                MessageBox.Show($"{len} videos succesfully saved!", "Success");
             }
             catch (Exception e) 
             {

@@ -39,6 +39,8 @@
             wordDetailURILbl = new Label();
             videoDataURILbl = new Label();
             startBtn = new Button();
+            errCtLbl = new Label();
+            errLbl = new Label();
             SuspendLayout();
             // 
             // label1
@@ -141,11 +143,31 @@
             startBtn.UseVisualStyleBackColor = true;
             startBtn.Click += startBtn_Click;
             // 
+            // errCtLbl
+            // 
+            errCtLbl.AutoSize = true;
+            errCtLbl.Location = new Point(741, 201);
+            errCtLbl.Name = "errCtLbl";
+            errCtLbl.Size = new Size(42, 25);
+            errCtLbl.TabIndex = 16;
+            errCtLbl.Text = "354";
+            // 
+            // errLbl
+            // 
+            errLbl.AutoSize = true;
+            errLbl.Location = new Point(681, 201);
+            errLbl.Name = "errLbl";
+            errLbl.Size = new Size(54, 25);
+            errLbl.TabIndex = 17;
+            errLbl.Text = "Error.";
+            // 
             // Form
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(856, 401);
+            Controls.Add(errLbl);
+            Controls.Add(errCtLbl);
             Controls.Add(startBtn);
             Controls.Add(videoDataURILbl);
             Controls.Add(wordDetailURILbl);
@@ -178,5 +200,7 @@
         private Label wordDetailURILbl;
         private Label videoDataURILbl;
         private Button startBtn;
+        private Label errCtLbl;
+        private Label errLbl;
     }
 }

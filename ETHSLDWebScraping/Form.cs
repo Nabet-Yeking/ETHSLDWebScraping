@@ -13,6 +13,7 @@ namespace ETHSLDWebScraping
         private readonly string _word_url;
         private readonly string _word_detail_url;
         private readonly string _video_data_url;
+        private int _errorCount;
 
         public Form()
         {
@@ -170,6 +171,8 @@ namespace ETHSLDWebScraping
 
         private void ShowErrorMessage(string e, string title = "Error")
         {
+            _errorCount++;
+            errCtLbl.Text = _errorCount.ToString();
             MessageBox.Show(e, title, MessageBoxButtons.OK);
         }
     }

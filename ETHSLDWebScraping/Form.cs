@@ -96,11 +96,7 @@ namespace ETHSLDWebScraping
         {
             try
             {
-                if (wordDetailResponseDto == null) return;
-                if (wordDetailResponseDto.Data == null) return;
-                if (wordDetailResponseDto.Data.Contents == null) return;
-                if (wordDetailResponseDto.Data.Contents.Length == 0) return;
-                if (wordDetailResponseDto.Data.Translations == null) return;
+                if (wordDetailResponseDto?.Data?.Contents?.Length == 0 || wordDetailResponseDto?.Data?.Translations == null) return;
 
                 string? fileName = wordDetailResponseDto.Data.Contents[0].FileName;
                 string? term = wordDetailResponseDto.Data.Translations[0].TransTerm;

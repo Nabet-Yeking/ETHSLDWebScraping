@@ -148,9 +148,9 @@
             errCtLbl.AutoSize = true;
             errCtLbl.Location = new Point(741, 201);
             errCtLbl.Name = "errCtLbl";
-            errCtLbl.Size = new Size(42, 25);
+            errCtLbl.Size = new Size(22, 25);
             errCtLbl.TabIndex = 16;
-            errCtLbl.Text = "354";
+            errCtLbl.Text = "0";
             // 
             // errLbl
             // 

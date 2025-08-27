@@ -68,7 +68,7 @@ namespace ETHSLDWebScraping
                     len = w.Length;
                 }
                 scrapingPrBar.Maximum = to - from;
-                
+
                 for (int i = from; i < len; i++)
                 {
                     int id = w[i].Id;
@@ -76,9 +76,9 @@ namespace ETHSLDWebScraping
                     await GetWordsVideoDataAsync(await response.Content.ReadFromJsonAsync<WordDetailResponseDto>() ?? null);
                     updateUI(id, i + 1, len);
                 }
-                MessageBox.Show($"{len} videos succesfully saved!", "Success");
+                MessageBox.Show($"{len} videos successfully saved!", "Success");
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 ShowErrorMessage(e.Message);
             }
@@ -107,13 +107,15 @@ namespace ETHSLDWebScraping
 
                 if (response.Content != null)
                 {
-                    FileStream fileStream = new FileStream($"{directoryInfo.Name}/{fileName}", FileMode.Create, FileAccess.ReadWrite);
-                    await response.Content.CopyToAsync(fileStream);
+                    using (FileStream fileStream = new FileStream($"{directoryInfo.Name}/{fileName}", FileMode.Create, FileAccess.ReadWrite))
+                    {
+                        await response.Content.CopyToAsync(fileStream);
+                    }
                     WriteMetaData(directoryInfo, fileName, term);
-                    fileStream.Close();
+                    //fileStream.Close();
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 ShowErrorMessage(ex.Message);
             }
@@ -143,7 +145,7 @@ namespace ETHSLDWebScraping
                 streamWriter.Close();
 
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 ShowErrorMessage(ex.Message);
                 return;

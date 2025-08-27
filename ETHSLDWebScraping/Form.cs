@@ -31,7 +31,7 @@ namespace ETHSLDWebScraping
             InitializeComponent();
         }
 
-        private async void StartScrappingAsync()
+        private async Task StartScrappingAsync()
         {
             WordResponseDto? words = await GetWordsAsync();
             if (words != null)
@@ -56,7 +56,7 @@ namespace ETHSLDWebScraping
                 int len;
                 if (to <= w.Length && to > 0)
                 {
-                    if (from !< to && from !>= 0)
+                    if (!(from < to) && !(from >= 0))
                     {
                         from = 0;
                     }
@@ -168,10 +168,10 @@ namespace ETHSLDWebScraping
             }
         }
 
-        private void startBtn_Click(object sender, EventArgs e)
+        private async void startBtn_Click(object sender, EventArgs e)
         {
-            StartScrappingAsync();
             startBtn.Enabled = false;
+            await StartScrappingAsync();
         }
 
         private void ShowErrorMessage(string e, string title = "Error")
